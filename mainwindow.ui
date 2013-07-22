@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Spi sviňák</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>2</number>
+       </property>
+       <widget class="widgetCom" name="tab_4">
+        <attribute name="title">
+         <string>Com setup</string>
+        </attribute>
+       </widget>
+       <widget class="widgetSetup" name="tab">
+        <attribute name="title">
+         <string>Spi setup</string>
+        </attribute>
+       </widget>
+       <widget class="widgetData" name="tab_2">
+        <attribute name="title">
+         <string>data</string>
+        </attribute>
+       </widget>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>widgetSetup</class>
+   <extends>QWidget</extends>
+   <header>widgetsetup.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>widgetData</class>
+   <extends>QWidget</extends>
+   <header>widgetdata.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>widgetCom</class>
+   <extends>QWidget</extends>
+   <header>widgetcom.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
