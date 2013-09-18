@@ -3,6 +3,7 @@
 #include "widgetsetup.h"
 #include <QTimer>
 #include <qextserialenumerator.h>
+#include <QTime>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -32,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     roznout(false);
 
     connect(comport,SIGNAL(readyRead()),this,SLOT(comportNewData()));
+    ui->plainTextEdit->setContextMenuPolicy(Qt::CustomContextMenu);
 
 }
 
@@ -53,11 +55,14 @@ void MainWindow::comportNewData()
     QTimer::singleShot(20,this,SLOT(comportTimeout()));
 }
 
+#define TIME (QTime::currentTime().toString("hh:mm:ss") + QString(".%1:\n ").arg(QTime::currentTime().msec()))
+
 void MainWindow::comportTimeout()
 {
+
     QByteArray arr = comport->readAll();
 
-    ui->plainTextEdit->appendPlainText("Rec <--: " + arr+ " | " + arr.toHex());
+    ui->plainTextEdit->appendPlainText(TIME + " Rec <--: " + arr+ " | " + arr.toHex());
 
     ui->tab->SetCrSetting(arr);
     ui->tab_2->newData(arr);
@@ -71,8 +76,13 @@ void MainWindow::comportSendData(QByteArray data)
         return;
     }
 
-    ui->plainTextEdit->appendPlainText("Send -->: " + data + " | " + data.toHex());
+    ui->plainTextEdit->appendPlainText(TIME + " Send -->: " + data + " | " + data.toHex());
 
     comport->write(data + "\r\n");
 
+}
+
+void MainWindow::on_plainTextEdit_customContextMenuRequested(const QPoint &pos)
+{
+    ui->plainTextEdit->clear();
 }

@@ -29,6 +29,7 @@ private slots:
     void comportSendData(QByteArray);
     void comportTimeout(void);
 
+    void on_plainTextEdit_customContextMenuRequested(const QPoint &pos);
 };
 
 #endif // MAINWINDOW_H
