@@ -48,7 +48,7 @@ void widgetData::newData(QByteArray &data)
     data.remove(0,4);
 
     ui->editRead->setText(data.toHex());
-
+    emit exchangedData(data);
 }
 
 void widgetData::on_editSend_returnPressed()
@@ -65,5 +65,13 @@ void widgetData::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
 
     on_listWidget_itemClicked(item);
+    on_butExchangeData_clicked();
+}
+
+void widgetData::exchangeData(const QByteArray &in)
+{
+    ui->editSend->setText(in.toHex());
+    ui->editRead->clear();
+
     on_butExchangeData_clicked();
 }

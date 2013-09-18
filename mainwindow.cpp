@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     roznout(false);
 
     connect(comport,SIGNAL(readyRead()),this,SLOT(comportNewData()));
+    ui->tabZdroj->setpreslkj(ui->tab_2);
 
 }
 

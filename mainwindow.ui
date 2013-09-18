@@ -22,7 +22,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>2</number>
+        <number>3</number>
        </property>
        <widget class="widgetCom" name="tab_4">
         <attribute name="title">
@@ -37,6 +37,11 @@
        <widget class="widgetData" name="tab_2">
         <attribute name="title">
          <string>data</string>
+        </attribute>
+       </widget>
+       <widget class="widgetZdroj" name="tabZdroj">
+        <attribute name="title">
+         <string>Zdroj</string>
         </attribute>
        </widget>
       </widget>
@@ -73,6 +78,12 @@
    <class>widgetCom</class>
    <extends>QWidget</extends>
    <header>widgetcom.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>widgetZdroj</class>
+   <extends>QWidget</extends>
+   <header>widgetzdroj.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

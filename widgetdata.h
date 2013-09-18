@@ -31,11 +31,12 @@ private:
         addItem(QString(name), QByteArray(data));
     }
 
-
-
+public slots:
+    void exchangeData(const QByteArray & in);
 
 signals:
     void SendCom(QByteArray);
+    void exchangedData(const QByteArray & data);
 };
 
 #endif // WIDGETDATA_H
