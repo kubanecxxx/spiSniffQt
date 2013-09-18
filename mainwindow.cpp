@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(comport,SIGNAL(readyRead()),this,SLOT(comportNewData()));
     ui->plainTextEdit->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->tabZdroj->setpreslkj(ui->tab_2);
+
 
 }
 
